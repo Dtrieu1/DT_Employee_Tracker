@@ -21,3 +21,5 @@ You can test the application by opening up the project: DT_Employee_Tracker and 
 ## Resources
 
 Primary & Foreign Keys: https://www.youtube.com/watch?v=B5r8CcTUs5Y
+mysql Datatypes: https://www.w3schools.com/mysql/mysql_datatypes.asp
+
