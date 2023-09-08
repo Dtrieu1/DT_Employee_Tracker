@@ -24,6 +24,7 @@ To see more details on the process, please feel free to use this video for furth
 ## Resources
 
 Primary & Foreign Keys: https://www.youtube.com/watch?v=B5r8CcTUs5Y
+<br>
 mysql Datatypes: https://www.w3schools.com/mysql/mysql_datatypes.asp
 
 
