@@ -53,6 +53,7 @@ function init(){
         viewAllRoles()
         break;
        case 'Add an Employee':
+        addEmployee()
         break;
       case 'Update an Employee Role':
         break;
@@ -105,7 +106,6 @@ function viewAllEmployees() {
     })
   })
  }
-
  function addRole(){
   const info = [
    {
@@ -133,3 +133,34 @@ function viewAllEmployees() {
   })
  }
 
+ function addEmployee(){
+  const info = [
+   {
+    type: "input",
+    message: "What is the first name of the employee?",
+    name: "firstName",
+   },
+   {
+    type: "input",
+    message: "What is the last name of the employee?",
+    name: "lastName",
+   },
+   {
+    type: "input",
+    message: "What is the role id of the employee?",
+    name: "RoleID",
+   },
+   {
+    type: "input",
+    message: "What is the manager id of this employee?",
+    name: "Manager",
+   }
+  ]
+  inquirer.prompt(info).then((answers) =>{
+    let sqlQuery = `INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ('${answers.firstName}', '${answers.lastName}', ${answers.RoleID}, ${answers.Manager})`;
+    db.query(sqlQuery, (err,res) =>
+    {
+      console.log(`${answers.firstName} has now been added to the database!`)
+    })
+  })
+ }
