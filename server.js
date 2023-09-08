@@ -56,6 +56,7 @@ function init(){
         addEmployee()
         break;
       case 'Update an Employee Role':
+        updateEmployee()
         break;
       case 'Add a Department':
         addDepartment()
@@ -74,6 +75,7 @@ function viewAllEmployees() {
   db.query(sqlQuery, (err,res) =>
   {
     console.table(res);
+    init();
   })}
 
  function viewAllDepartments() {
@@ -81,12 +83,14 @@ function viewAllEmployees() {
     db.query(sqlQuery, (err,res) =>
     {
       console.table(res);
+      init();
     })}
   function viewAllRoles() {
     let sqlQuery = 'SELECT * FROM roles'; 
     db.query(sqlQuery, (err,res) =>
     {
       console.table(res);
+      init();
     })}
  function addDepartment(){
   const info = {
@@ -103,6 +107,7 @@ function viewAllEmployees() {
     {
       if (err) throw err;
       console.log(`${answers.newDepartment} has now been added to the database!`)
+      init();
     })
   })
  }
@@ -129,6 +134,7 @@ function viewAllEmployees() {
     db.query(sqlQuery, (err,res) =>
     {
       console.log(`${answers.newTitle} has now been added to the database!`)
+      init();
     })
   })
  }
@@ -161,6 +167,17 @@ function viewAllEmployees() {
     db.query(sqlQuery, (err,res) =>
     {
       console.log(`${answers.firstName} has now been added to the database!`)
-    })
+      init();
+    }
+    )
   })
+  
  }
+    function updateEmployee(){
+      db.query("SELECT title FROM roles", (err,res)=>{
+        console.log(res[0].title);
+        console.table(res);
+        init();
+      }
+      )
+    }
